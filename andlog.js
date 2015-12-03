@@ -1,8 +1,10 @@
 // follow @HenrikJoreteg and @andyet if you like this ;)
 (function () {
     var inNode = typeof window === 'undefined',
-        ls = !inNode && window.localStorage,
         out = {};
+    var ls = true;
+    try { ls = !inNode && window.localStorage; }
+    catch(e){ ls = false; }
 
     if (inNode) {
         module.exports = console;
