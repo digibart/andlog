@@ -11,7 +11,8 @@
         return;
     }
 
-    var andlogKey = ls.andlogKey || 'debug'
+    var andlogKey = ls.andlogKey || 'debug';
+
     if (ls && ls[andlogKey] && window.console) {
         out = window.console;
     } else {
