@@ -1,17 +1,22 @@
 // follow @HenrikJoreteg and @andyet if you like this ;)
 (function () {
     var inNode = typeof window === 'undefined',
-        out = {};
-    var ls = true;
-    try { ls = !inNode && window.localStorage; }
-    catch(e){ ls = false; }
+        out = {},
+        ls = true,
+        andlogKey = null;
+
+    try {
+    	ls = !inNode && window.localStorage;
+    	andlogKey = ls.andlogKey;
+    }
+    catch(e) {
+    	ls = false;
+    }
 
     if (inNode) {
         module.exports = console;
         return;
     }
-
-    var andlogKey = ls.andlogKey || 'debug';
 
     if (ls && ls[andlogKey] && window.console) {
         out = window.console;
